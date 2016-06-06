@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Tutorial.fs" />
+    <Compile Include="ForFun.fs" />
   </ItemGroup>
   <Import Project="$(FSharpTargetsPath)" />
 </Project>
