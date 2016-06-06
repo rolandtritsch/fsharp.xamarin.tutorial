@@ -50,7 +50,7 @@
 // Integers
 // ---------------------------------------------------------------
 
-module Integers =
+module Integers = begin
     // Define integer value
     let sampleInteger = 176
  
@@ -68,12 +68,13 @@ module Integers =
  
     // The next line prints the list of tuples, using %A for generic printing
     printfn "The list of squares from 0 to 99 is:\n%A" sampleTableOfSquares
+end
  
 // ---------------------------------------------------------------
 // Basic functions
 // ---------------------------------------------------------------
 
-module BasicFunctions =
+module BasicFunctions = begin
     // Use 'let' to define a function that accepts an integer argument and returns an integer.
     let func1 x = x * x + 3            
 
@@ -99,12 +100,13 @@ module BasicFunctions =
             2.0 * x * x + x/5.0 - 37.0
     let result3 = func3 (6.5 + 4.5)   
     printfn "The result of applying the 2nd sample function to (6.5 + 4.5) is %f" result3
+end
 
 // ---------------------------------------------------------------
 // Booleans
 // ---------------------------------------------------------------
 
-module SomeBooleanValues =
+module SomeBooleanValues = begin
     // Some boolean values
     let boolean1 = true
     let boolean2 = false
@@ -114,12 +116,13 @@ module SomeBooleanValues =
     // Build and print tuples to express if number is even
     let evenNumbers = [for i in 0 .. 9 -> (i, if i % 2 = 0 then true else false)]
     printfn "Tuples of to express if number is even\n%A" evenNumbers
+end
 
 // ---------------------------------------------------------------
 // Strings
 // ---------------------------------------------------------------
 
-module StringManipulation =
+module StringManipulation = begin
     // Some strings
     let string1 = "Hello"
     let string2  = "world"
@@ -139,29 +142,25 @@ module StringManipulation =
     // Lots of string functions available
     // printfn "%s" helloWorld.ToUpper
     printfn "%b" (helloWorld.Contains "world")
+end
 
 // ---------------------------------------------------------------
-//         Tuples (ordered sets of values)
+// Tuples (ordered sets of values)
 // ---------------------------------------------------------------
 
-module Tuples =
-
-    /// A simple tuple of integers
+module Tuples = begin
+    // A simple tuple of integers
     let tuple1 = (1, 2, 3)
 
-    /// A function that swaps the order of two values in a tuple.
-    /// QuickInfo shows that the function is inferred to have a generic type.
-
-    let swapElems (a, b) = (b, a)
-
-    printfn "The result of swapping (1, 2) is %A" (swapElems (1,2))
+    // A function that swaps the order of two values in a tuple.
+    // QuickInfo shows that the function is inferred to have a generic type.
+    let swapElems(a, b) = (b, a)
+    printfn "The result of swapping (1, 2) is %A" (swapElems (1, 2))
 
     /// A tuple consisting of an integer, a string, and a double-precision floating point number
     let tuple2 = (1, "fred", 3.1415)
-
-    printfn "tuple1: %A    tuple2: %A" tuple1 tuple2 
-
- 
+    printfn "tuple1: %A    tuple2: %A" tuple1 tuple2
+end
 
 // ---------------------------------------------------------------
 //         Lists and list processing
