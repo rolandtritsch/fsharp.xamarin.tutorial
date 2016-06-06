@@ -116,32 +116,29 @@ module SomeBooleanValues =
     printfn "Tuples of to express if number is even\n%A" evenNumbers
 
 // ---------------------------------------------------------------
-//         Strings
+// Strings
 // ---------------------------------------------------------------
 
 module StringManipulation =
-
+    // Some strings
     let string1 = "Hello"
-
     let string2  = "world"
 
-    /// Use @ to create a verbatim string literal
-
+    // Use @ to create a verbatim string literal
     let string3 = @"c:\Program Files\"
 
-    /// Using a triple-quote string literal
-    let string4 = """He said "hello world" after you did"""
+    // Using a triple-quote string literal
+    let helloWorld = string1 + " " + string2 
+    let string4 = """He said "hello world" after you did""" + " " + helloWorld
+    printfn "%s" string4
 
-    let helloWorld = string1 + " " + string2 // concatenate the two strings with a space in between
-
-    printfn "%s" helloWorld
-
-    /// A string formed by taking the first 7 characters of one of the result strings
+    // A string formed by taking the first 7 characters of one of the result strings
     let substring = helloWorld.[0..6]
-
     printfn "%s" substring
 
-
+    // Lots of string functions available
+    // printfn "%s" helloWorld.ToUpper
+    printfn "%b" (helloWorld.Contains "world")
 
 // ---------------------------------------------------------------
 //         Tuples (ordered sets of values)
