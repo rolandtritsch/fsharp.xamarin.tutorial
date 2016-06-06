@@ -200,89 +200,77 @@ module Lists = begin
 end
 
 // ---------------------------------------------------------------
-//         Classes
+// Classes
 // ---------------------------------------------------------------
 
-module DefiningClasses =
-    /// The class's constructor takes two arguments: dx and dy, both of type 'float'.
-    type Vector2D(dx : float, dy : float) =
-
-        /// The length of the vector, computed when the object is constructed
-        let length = sqrt (dx*dx + dy*dy)
-
+module DefiningClasses = begin
+    // The class's constructor takes two arguments: dx and dy, both of type 'float'.
+    type Vector2D(dx: float, dy: float) = class
+        // The length of the vector, computed when the object is constructed
+        let length = sqrt(dx * dx + dy * dy)
 
         // 'this' specifies a name for the object's self identifier
-        // In instance methods, it must appear before the member name.
-
-        member this.DX = dx 
-
+        // In instance methods, it must appear before the member name.       
+        member this.DX = dx
         member this.DY = dy
-
         member this.Length = length
-
         member this.Scale(k) = Vector2D(k * this.DX, k * this.DY)
-
+    end
    
-    /// An instance of the Vector2D class
+    // An instance of the Vector2D class
     let vector1 = Vector2D(3.0, 4.0)
 
-    /// Get a new scaled vector object, without modifying the original object
+    // Get a new scaled vector object, without modifying the original object
     let vector2 = vector1.Scale(10.0)
-
     printfn "Length of vector1: %f      Length of vector2: %f" vector1.Length vector2.Length
-
- 
+end
 
 // ---------------------------------------------------------------
-//         Generic classes
+// Generic classes
 // ---------------------------------------------------------------
 
-module DefiningGenericClasses =
-
-    type StateTracker<'T>(initialElement: 'T) = // 'T is the type parameter for the class
-
-        /// Store the states in an array
+module DefiningGenericClasses = begin
+    type StateTracker<'T>(initialElement: 'T) = class
+        // Store the states in an array
         let mutable states = [ initialElement ]
 
-        /// Add a new element to the list of states
-        member this.UpdateState newState =
-            states <- newState :: states  // use the '<-' operator to mutate the value
+        // Add a new element to the list of states
+        member this.UpdateState newState = states <- newState :: states
 
-
-        /// Get the entire list of historical states
+        // Get the entire list of historical states
         member this.History = states
 
- 
         /// Get the latest state
         member this.Current = states.Head
+    end
 
-
-    /// An 'int' instance of the state tracker class. Note that the type parameter is inferred.
-    let tracker = StateTracker 10
-
-
+    // An 'int' instance of the state tracker class. Note that the type parameter is inferred.
+    let tracker = StateTracker(10)
+   
     // Add a state
-    tracker.UpdateState 17
+    tracker.UpdateState(17)
 
-
+    printfn "Tracker history: %A" tracker.History
+end
 
 // ---------------------------------------------------------------
-//         Implementing interfaces
+// Implementing interfaces
 // ---------------------------------------------------------------
 
-/// Type that implements IDisposable
+module ImplementingInterfaces = begin
+    type ReadFile() = class
+        let file = new System.IO.StreamReader("./readme.txt")
+        member this.ReadLine() = file.ReadLine()
 
-type ReadFile() =
+        // this class's implementation of IDisposable members
+        interface System.IDisposable with   
+            member this.Dispose() = file.Close()
+        end
+    end
 
-    let file = new System.IO.StreamReader("readme.txt")
-
-    member this.ReadLine() = file.ReadLine()
-
-    // this class's implementation of IDisposable members
-    interface System.IDisposable with   
-
-        member this.Dispose() = file.Close()
-
+    let reader = new ReadFile()
+    printfn "Line: %A" reader.ReadLine
+end 
 
 // ---------------------------------------------------------------
 //         Arrays
