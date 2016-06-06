@@ -47,7 +47,7 @@
  
 
 // ---------------------------------------------------------------
-//         Integers and basic functions
+// Integers
 // ---------------------------------------------------------------
 
 module Integers =
@@ -69,7 +69,10 @@ module Integers =
     // The next line prints the list of tuples, using %A for generic printing
     printfn "The list of squares from 0 to 99 is:\n%A" sampleTableOfSquares
  
- 
+// ---------------------------------------------------------------
+// Basic functions
+// ---------------------------------------------------------------
+
 module BasicFunctions =
     // Use 'let' to define a function that accepts an integer argument and returns an integer.
     let func1 x = x * x + 3            
@@ -98,26 +101,23 @@ module BasicFunctions =
     printfn "The result of applying the 2nd sample function to (6.5 + 4.5) is %f" result3
 
 // ---------------------------------------------------------------
-//         Booleans
+// Booleans
 // ---------------------------------------------------------------
 
-
 module SomeBooleanValues =
-
+    // Some boolean values
     let boolean1 = true
-
     let boolean2 = false
-
     let boolean3 = not boolean1 && (boolean2 || false)
-
     printfn "The expression 'not boolean1 && (boolean2 || false)' is %A" boolean3
 
- 
+    // Build and print tuples to express if number is even
+    let evenNumbers = [for i in 0 .. 9 -> (i, if i % 2 = 0 then true else false)]
+    printfn "Tuples of to express if number is even\n%A" evenNumbers
 
 // ---------------------------------------------------------------
 //         Strings
 // ---------------------------------------------------------------
-
 
 module StringManipulation =
 
