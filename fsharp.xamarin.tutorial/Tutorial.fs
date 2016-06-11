@@ -640,11 +640,10 @@ module Events = begin
 end
 
 // ---------------------------------------------------------------
-//         Database access using type providers
+// Database access using type providers
 // ---------------------------------------------------------------
 
-module DatabaseAccess =
-
+module DatabaseAccess = begin
     // The easiest way to access a SQL database from F# is to use F# type providers.
     // Add references to System.Data, System.Data.Linq, and FSharp.Data.TypeProviders.dll.
     // You can use Server Explorer to build your ConnectionString.
@@ -666,12 +665,9 @@ module DatabaseAccess =
 
     *)
 
-
     // You can also use SqlEntityConnection instead of SqlDataConnection, which accesses the database using Entity Framework.
-
     ()
-
- 
+end
 
 // ---------------------------------------------------------------
 //         OData access using type providers
