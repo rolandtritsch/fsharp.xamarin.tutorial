@@ -421,55 +421,63 @@ module RecordTypes = begin
     printfn "Sarek: %A" contact2
 
     // Converts a 'ContactCard' object to a string
-    let showCard c = 
+    let showCard(c) = 
         c.Name 
         + " Phone: " 
         + c.Phone 
         + (if not c.Verified then " (unverified)" else "")
-    printfn "vcard: %A" (showCard contact2)
+    printfn "vcard: %A" (showCard(contact2))
 end
 
 // ---------------------------------------------------------------
-//         Union types
+// Union types
 // ---------------------------------------------------------------
 
-module UnionTypes =
-
-    /// Represents the suit of a playing card
+module UnionTypes = begin
+    // Represents the suit of a playing card
     type Suit =
         | Hearts
         | Clubs
         | Diamonds
         | Spades
 
-    /// Represents the rank of a playing card
-    type Rank =
-        /// Represents the rank of cards 2 .. 10
+    // Represents the rank of a playing card
+    type Rank = 
+        // Represents the rank of cards 2 .. 10
         | Value of int
         | Ace
         | King
         | Queen
         | Jack
 
-        static member GetAllRanks() =
-            [ yield Ace
-              for i in 2 .. 10 do yield Value i
-              yield Jack
-              yield Queen
-              yield King ]
+        static member GetAllRanks() = [ 
+            yield Ace
+            for i in 2 .. 10 do yield Value i
+            yield Jack
+            yield Queen
+            yield King 
+        ]
+    
+    type Card = { 
+        Suit: Suit
+        Rank: Rank 
+    }
 
-    type Card =  { Suit: Suit; Rank: Rank }
+    // Returns a list representing all the cards in the deck
+    let fullDeck = [ 
+        for suit in [ Hearts; Diamonds; Clubs; Spades] do
+            for rank in Rank.GetAllRanks() do 
+                yield { 
+                    Suit=suit
+                    Rank=rank 
+                }
+            done
+        done
+    ]
+    printfn "Full deck: %A" fullDeck
 
-    /// Returns a list representing all the cards in the deck
-
-    let fullDeck =
-        [ for suit in [ Hearts; Diamonds; Clubs; Spades] do
-              for rank in Rank.GetAllRanks() do
-                  yield { Suit=suit; Rank=rank } ]
-
-
-    /// Converts a 'Card' object to a string
-    let showCard c =
+    // Converts a 'Card' object to a string
+    let showCard(c) = begin
         let rankString =
             match c.Rank with
             | Ace -> "Ace"
@@ -486,18 +494,20 @@ module UnionTypes =
             | Hearts -> "hearts"
 
         rankString  + " of " + suitString
+    end
 
-    let printAllCards() =
+    let printAllCards() = begin
         for card in fullDeck do
             printfn "%s" (showCard card)
-
- 
+        done
+    end
+end
 
 // ---------------------------------------------------------------
-//         Option types
+// Option types
 // ---------------------------------------------------------------
 
-module OptionTypes =
+module OptionTypes = 
     /// Option values are any kind of value tagged with either 'Some' or 'None'.
     /// They are used extensively in F# code to represent the cases where many other
     /// languages would use null references.
