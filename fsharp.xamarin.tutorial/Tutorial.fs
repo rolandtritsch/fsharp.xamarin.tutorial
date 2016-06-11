@@ -584,28 +584,35 @@ module UnitsOfMeasure = begin
 end
 
 // ---------------------------------------------------------------
-//         Parallel array programming
+// Parallel array programming
 // ---------------------------------------------------------------
  
-
-module ParallelArrayProgramming =
-
-    let oneBigArray = [| 0 .. 100000 |]
+module ParallelArrayProgramming = begin
+    let oneBigArray = [| 0 .. 100000000 |]
 
     // do some CPU intensive computation
-    let rec computeSomeFunction x =
+    let rec computeSomeFunction(x) = begin
         if x <= 2 then 1
-        else computeSomeFunction (x - 1) + computeSomeFunction (x - 2)
+        else computeSomeFunction(x - 1) + computeSomeFunction(x - 2)
+    end
+
+    // Do a map over a large input array
+    let computeResults() = oneBigArray |> Array.map(fun x -> computeSomeFunction(x % 20))
+    let stopWatch = System.Diagnostics.Stopwatch.StartNew()
+    printfn "Computation results: %A" (computeResults())
+    stopWatch.Stop
+    printfn "Elapse: %d (msec)" stopWatch.ElapsedMilliseconds
 
     // Do a parallel map over a large input array
-    let computeResults() = oneBigArray |> Array.Parallel.map (fun x -> computeSomeFunction (x % 20))
-
-    printfn "Parallel computation results: %A" (computeResults())
-
- 
+    let computeParResults() = oneBigArray |> Array.Parallel.map(fun x -> computeSomeFunction(x % 20))
+    stopWatch.Restart
+    printfn "Parallel computation results: %A" (computeParResults())
+    stopWatch.Stop
+    printfn "Elapse Par: %d (msec)" stopWatch.ElapsedMilliseconds
+end
 
 // ---------------------------------------------------------------
-//         Using events
+// Using events
 // ---------------------------------------------------------------
 
 module Events =
