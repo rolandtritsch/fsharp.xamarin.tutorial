@@ -24,43 +24,43 @@ printfn("ZeroToFive: %A")(zeroToFive)
 
 // ======== Functions ========
 // The "let" keyword also defines a named function.
-let square x = x * x          // Note that no parens are used.
-square 3                      // Now run the function. Again, no parens.
+let square(x) = x * x                   // Note that no parens are used.
+printfn("Square(3): %d")(square(3))     // Now run the function. Again, no parens.
 
-let add x y = x + y           // don't use add (x,y)! It means something
-                              // completely different.
-add 2 3                       // Now run the function.
+let add(x, y) = x + y                   // don't use add (x,y)! It means something
+                                        // completely different.
+printfn("Add(2, 3): %d")(add(2, 3))     // Now run the function.
 
 // to define a multiline function, just use indents. No semicolons needed.
-let evens list =
-   let isEven x = x%2 = 0     // Define "isEven" as an inner ("nested") function
-   List.filter isEven list    // List.filter is a library function
-                              // with two parameters: a boolean function
-                              // and a list to work on
-
-evens oneToFive               // Now run the function
+let evens(list) = begin
+   let isEven x = (x % 2 = 0)     // Define "isEven" as an inner ("nested") function
+   List.filter(isEven)(list)      // List.filter is a library function
+                                  // with two parameters: a boolean function
+                                  // and a list to work on
+end
+printfn("Even numvers: %A")(evens(oneToFive))               // Now run the function
 
 // You can use parens to clarify precedence. In this example,
 // do "map" first, with two args, then do "sum" on the result.
 // Without the parens, "List.map" would be passed as an arg to List.sum
-let sumOfSquaresTo100 =
-   List.sum ( List.map square [1..100] )
+let sumOfSquaresTo100 = List.sum(List.map(square)([1..100]))
+printfn("SumOfSquaresTo100: %d")(sumOfSquaresTo100)
 
 // You can pipe the output of one operation to the next using "|>"
 // Here is the same sumOfSquares function written using pipes
-let sumOfSquaresTo100piped =
-   [1..100] |> List.map square |> List.sum  // "square" was defined earlier
+let sumOfSquaresTo100piped = [1..100] |> List.map square |> List.sum
+printfn("SumOfSquaresTo100piped: %d")(sumOfSquaresTo100piped)
 
 // you can define lambdas (anonymous functions) using the "fun" keyword
-let sumOfSquaresTo100withFun =
-   [1..100] |> List.map (fun x->x*x) |> List.sum
+let sumOfSquaresTo100withFun = [1..100] |> List.map (fun x -> x * x) |> List.sum
+printfn("SumOfSquaresTo100withFun: %d")(sumOfSquaresTo100withFun)
 
 // In F# returns are implicit -- no "return" needed. A function always
 // returns the value of the last expression used.
 
 // ======== Pattern Matching ========
 // Match..with.. is a supercharged case/switch statement.
-let simplePatternMatch =
+let simplePatternMatch = 
    let x = "a"
    match x with
     | "a" -> printfn "x is a"
