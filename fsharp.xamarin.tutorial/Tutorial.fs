@@ -670,13 +670,11 @@ module DatabaseAccess = begin
 end
 
 // ---------------------------------------------------------------
-//         OData access using type providers
+//  OData access using type providers
 // ---------------------------------------------------------------
 
-module OData =
-
+module OData = begin
     (*
-
     open System.Data.Services.Client
     open Microsoft.FSharp.Data.TypeProviders
 
@@ -697,9 +695,8 @@ module OData =
         printfn "%A - %A" c.GeographyId c.PerCapitaIncome2010.Value
 
     *)
-
     ()
-
+end
  
 #if COMPILED
 
