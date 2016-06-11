@@ -359,66 +359,76 @@ end
 // Recursive functions
 // ---------------------------------------------------------------
 
-
-module RecursiveFunctions  =
-
-    /// Compute the factorial of an integer. Use 'let rec' to define a recursive function
-    let rec factorial n =
-        if n = 0 then 1 else n * factorial (n-1)
+module RecursiveFunctions = begin 
+    // Compute the factorial of an integer. Use 'let rec' to define a recursive function
+    let rec factorial(n) = begin
+        if n = 0 then 1 else n * factorial(n-1)
+    end
+    printfn("Factorial(100): %d")(factorial(10))
  
-    /// Computes the greatest common factor of two integers.
+    // Computes the greatest common factor of two integers.
     //  Since all of the recursive calls are tail calls, the compiler will turn the function into a loop,
     //  which improves performance and reduces memory consumption.
-
-    let rec greatestCommonFactor a b =                      
+    let rec greatestCommonFactor(a, b) = begin                      
         if a = 0 then b
-        elif a < b then greatestCommonFactor a (b - a)          
-        else greatestCommonFactor (a - b) b
+        elif a < b then greatestCommonFactor(a, (b - a))          
+        else greatestCommonFactor((a - b), b)
+    end
+    printfn("GCF(100): %d")(factorial(10))
 
-
-    /// Computes the sum of a list of integers using recursion.
-    let rec sumList xs =
+    // Computes the sum of a list of integers using recursion.
+    let rec sumList(xs) = begin
         match xs with
         | []    -> 0
         | y::ys -> y + sumList ys
+    end
+    printfn("Recursive Sum: %d")(sumList())
 
-
-    /// Make the function tail recursive, using a helper function with a result accumulator
-    let rec private sumListTailRecHelper accumulator xs =
+    // Make the function tail recursive, using a helper function with a result accumulator
+    let rec private sumListTailRecHelper(accumulator, xs) = begin
         match xs with
-        | []    -> accumulator
-        | y::ys -> sumListTailRecHelper (accumulator+y) ys
-
-
-    let sumListTailRecursive xs = sumListTailRecHelper 0 xs
-
- 
+        | [] -> accumulator
+        | y::ys -> sumListTailRecHelper((accumulator+y), ys)
+    end
+    let sumListTailRecursive(xs) = sumListTailRecHelper(0, xs)
+    printfn("TailRecursive Sum: %d")(sumListTailRecursive(10000))
+end
 
 // ---------------------------------------------------------------
-//         Record types
+// Record types
 // ---------------------------------------------------------------
 
+module RecordTypes = begin
+    // Define a record type
+    type ContactCard = { 
+        Name: string
+        Phone: string
+        Verified: bool
+        Planet: string 
+    }
 
-module RecordTypes =
-    // define a record type
-    type ContactCard =
-        { Name     : string
-          Phone    : string
-          Verified : bool }
-
-    let contact1 = { Name = "Alf" ; Phone = "(206) 555-0157" ; Verified = false }
+    let contact1 = { 
+        Name = "Alf"
+        Phone = "(206) 555-0157"
+        Verified = false
+        Planet = "Melmac"
+    }
+    printfn "Alf: %A" contact1
 
     // Create a new record that is a copy of contact1,
     // but has different values for the 'Phone' and 'Verified' fields
+    let contact2 = { contact1 with Name = "Sarek"; Planet = "Vulcan" }
+    printfn "Sarek: %A" contact2
 
-    let contact2 = { contact1 with Phone = "(206) 555-0112"; Verified = true }
+    // Converts a 'ContactCard' object to a string
+    let showCard c = 
+        c.Name 
+        + " Phone: " 
+        + c.Phone 
+        + (if not c.Verified then " (unverified)" else "")
+    printfn "vcard: %A" (showCard contact2)
+end
 
-
-    /// Converts a 'ContactCard' object to a string
-    let showCard c =
-        c.Name + " Phone: " + c.Phone + (if not c.Verified then " (unverified)" else "")
-
-       
 // ---------------------------------------------------------------
 //         Union types
 // ---------------------------------------------------------------
