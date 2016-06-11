@@ -60,12 +60,13 @@ printfn("SumOfSquaresTo100withFun: %d")(sumOfSquaresTo100withFun)
 
 // ======== Pattern Matching ========
 // Match..with.. is a supercharged case/switch statement.
-let simplePatternMatch = 
-   let x = "a"
+let simplePatternMatch(x) = begin
    match x with
-    | "a" -> printfn "x is a"
-    | "b" -> printfn "x is b"
-    | _ -> printfn "x is something else"   // underscore matches anything
+    | "a" -> printfn("x is a")
+    | "b" -> printfn("x is b")
+    | _ -> printfn("x is something else")
+end
+simplePatternMatch("c")
 
 // Some(..) and None are roughly analogous to Nullable wrappers
 let validValue = Some(99)
@@ -73,13 +74,14 @@ let invalidValue = None
 
 // In this example, match..with matches the "Some" and the "None",
 // and also unpacks the value in the "Some" at the same time.
-let optionPatternMatch input =
+let optionPatternMatch(input) = begin
    match input with
-    | Some i -> printfn "input is an int=%d" i
-    | None -> printfn "input is missing"
+    | Some(i) -> printfn("input is an int: %d")(i)
+    | None -> printfn("input is missing")
+end
 
-optionPatternMatch validValue
-optionPatternMatch invalidValue
+optionPatternMatch(validValue)
+optionPatternMatch(invalidValue)
 
 // ========= Complex Data Types =========
 
