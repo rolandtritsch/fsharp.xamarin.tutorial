@@ -1,7 +1,7 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{f2a71f9b-5d33-465a-a702-920d77279786}") = "fsharp.xamarin.tutorial", "fsharp.xamarin.tutorial\fsharp.xamarin.tutorial.fsproj", "{93A20753-F56B-4408-8A6A-7A4F439F6C34}"
+Project("{f2a71f9b-5d33-465a-a702-920d77279786}") = "Playing", "fsharp.xamarin.tutorial\Playing.fsproj", "{93A20753-F56B-4408-8A6A-7A4F439F6C34}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
