@@ -19,6 +19,8 @@ Project("{f2a71f9b-5d33-465a-a702-920d77279786}") = "Matching", "Matching\Matchi
 EndProject
 Project("{f2a71f9b-5d33-465a-a702-920d77279786}") = "Operators", "Operators\Operators.fsproj", "{58F829E4-348F-44F3-9F86-4FE6FAEE08A2}"
 EndProject
+Project("{f2a71f9b-5d33-465a-a702-920d77279786}") = "Options", "Options\Options.fsproj", "{95B4506D-B3DE-4E00-ABB4-7BC1C04D36A6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -80,5 +82,11 @@ Global
 		{58F829E4-348F-44F3-9F86-4FE6FAEE08A2}.Release|x86.Build.0 = Release|x86
 		{58F829E4-348F-44F3-9F86-4FE6FAEE08A2}.AppStore|Any CPU.ActiveCfg = Debug|x86
 		{58F829E4-348F-44F3-9F86-4FE6FAEE08A2}.AppStore|Any CPU.Build.0 = Debug|x86
+		{95B4506D-B3DE-4E00-ABB4-7BC1C04D36A6}.Debug|x86.ActiveCfg = Debug|x86
+		{95B4506D-B3DE-4E00-ABB4-7BC1C04D36A6}.Debug|x86.Build.0 = Debug|x86
+		{95B4506D-B3DE-4E00-ABB4-7BC1C04D36A6}.Release|x86.ActiveCfg = Release|x86
+		{95B4506D-B3DE-4E00-ABB4-7BC1C04D36A6}.Release|x86.Build.0 = Release|x86
+		{95B4506D-B3DE-4E00-ABB4-7BC1C04D36A6}.AppStore|Any CPU.ActiveCfg = Debug|x86
+		{95B4506D-B3DE-4E00-ABB4-7BC1C04D36A6}.AppStore|Any CPU.Build.0 = Debug|x86
 	EndGlobalSection
 EndGlobal
