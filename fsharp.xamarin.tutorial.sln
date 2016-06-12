@@ -25,6 +25,8 @@ Project("{f2a71f9b-5d33-465a-a702-920d77279786}") = "Records", "Records\Records.
 EndProject
 Project("{f2a71f9b-5d33-465a-a702-920d77279786}") = "Strings", "Strings\Strings.fsproj", "{F9BE2818-BEC1-46A5-A6BF-D9163EE1B16E}"
 EndProject
+Project("{f2a71f9b-5d33-465a-a702-920d77279786}") = "Tree", "Tree\Tree.fsproj", "{046D852E-AD4D-47D2-AF76-21745D9B4B04}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -104,5 +106,11 @@ Global
 		{F9BE2818-BEC1-46A5-A6BF-D9163EE1B16E}.Release|x86.Build.0 = Release|x86
 		{F9BE2818-BEC1-46A5-A6BF-D9163EE1B16E}.AppStore|Any CPU.ActiveCfg = Debug|x86
 		{F9BE2818-BEC1-46A5-A6BF-D9163EE1B16E}.AppStore|Any CPU.Build.0 = Debug|x86
+		{046D852E-AD4D-47D2-AF76-21745D9B4B04}.Debug|x86.ActiveCfg = Debug|x86
+		{046D852E-AD4D-47D2-AF76-21745D9B4B04}.Debug|x86.Build.0 = Debug|x86
+		{046D852E-AD4D-47D2-AF76-21745D9B4B04}.Release|x86.ActiveCfg = Release|x86
+		{046D852E-AD4D-47D2-AF76-21745D9B4B04}.Release|x86.Build.0 = Release|x86
+		{046D852E-AD4D-47D2-AF76-21745D9B4B04}.AppStore|Any CPU.ActiveCfg = Debug|x86
+		{046D852E-AD4D-47D2-AF76-21745D9B4B04}.AppStore|Any CPU.Build.0 = Debug|x86
 	EndGlobalSection
 EndGlobal
