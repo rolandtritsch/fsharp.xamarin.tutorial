@@ -9,6 +9,8 @@ Project("{f2a71f9b-5d33-465a-a702-920d77279786}") = "HackerPhrase", "HackerPhras
 EndProject
 Project("{f2a71f9b-5d33-465a-a702-920d77279786}") = "HelloWorld", "HelloWorld\HelloWorld.fsproj", "{6AE6F588-7E3A-4CD1-BE86-7F7E784E5738}"
 EndProject
+Project("{f2a71f9b-5d33-465a-a702-920d77279786}") = "HigherOrderFunction", "HigherOrderFunction\HigherOrderFunction.fsproj", "{67B7A7D3-59FF-4667-9CE4-D37CD6E73404}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -40,5 +42,11 @@ Global
 		{6AE6F588-7E3A-4CD1-BE86-7F7E784E5738}.Release|x86.Build.0 = Release|x86
 		{6AE6F588-7E3A-4CD1-BE86-7F7E784E5738}.AppStore|Any CPU.ActiveCfg = Debug|x86
 		{6AE6F588-7E3A-4CD1-BE86-7F7E784E5738}.AppStore|Any CPU.Build.0 = Debug|x86
+		{67B7A7D3-59FF-4667-9CE4-D37CD6E73404}.Debug|x86.ActiveCfg = Debug|x86
+		{67B7A7D3-59FF-4667-9CE4-D37CD6E73404}.Debug|x86.Build.0 = Debug|x86
+		{67B7A7D3-59FF-4667-9CE4-D37CD6E73404}.Release|x86.ActiveCfg = Release|x86
+		{67B7A7D3-59FF-4667-9CE4-D37CD6E73404}.Release|x86.Build.0 = Release|x86
+		{67B7A7D3-59FF-4667-9CE4-D37CD6E73404}.AppStore|Any CPU.ActiveCfg = Debug|x86
+		{67B7A7D3-59FF-4667-9CE4-D37CD6E73404}.AppStore|Any CPU.Build.0 = Debug|x86
 	EndGlobalSection
 EndGlobal
