@@ -11,6 +11,8 @@ Project("{f2a71f9b-5d33-465a-a702-920d77279786}") = "HelloWorld", "HelloWorld\He
 EndProject
 Project("{f2a71f9b-5d33-465a-a702-920d77279786}") = "HigherOrderFunction", "HigherOrderFunction\HigherOrderFunction.fsproj", "{67B7A7D3-59FF-4667-9CE4-D37CD6E73404}"
 EndProject
+Project("{f2a71f9b-5d33-465a-a702-920d77279786}") = "Lambdas", "Lambdas\Lambdas.fsproj", "{B17CAAC3-3687-4D2E-8B3C-6094968E8BF8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -48,5 +50,11 @@ Global
 		{67B7A7D3-59FF-4667-9CE4-D37CD6E73404}.Release|x86.Build.0 = Release|x86
 		{67B7A7D3-59FF-4667-9CE4-D37CD6E73404}.AppStore|Any CPU.ActiveCfg = Debug|x86
 		{67B7A7D3-59FF-4667-9CE4-D37CD6E73404}.AppStore|Any CPU.Build.0 = Debug|x86
+		{B17CAAC3-3687-4D2E-8B3C-6094968E8BF8}.Debug|x86.ActiveCfg = Debug|x86
+		{B17CAAC3-3687-4D2E-8B3C-6094968E8BF8}.Debug|x86.Build.0 = Debug|x86
+		{B17CAAC3-3687-4D2E-8B3C-6094968E8BF8}.Release|x86.ActiveCfg = Release|x86
+		{B17CAAC3-3687-4D2E-8B3C-6094968E8BF8}.Release|x86.Build.0 = Release|x86
+		{B17CAAC3-3687-4D2E-8B3C-6094968E8BF8}.AppStore|Any CPU.ActiveCfg = Debug|x86
+		{B17CAAC3-3687-4D2E-8B3C-6094968E8BF8}.AppStore|Any CPU.Build.0 = Debug|x86
 	EndGlobalSection
 EndGlobal
